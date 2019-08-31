@@ -16,9 +16,9 @@ const files = [
 ];
 
 const config = {
-    appId: "your.app.id",
-    productName: "product_name",
-    copyright: "Copyright © 2019 Your Name",
+    appId: "org.abitoff.tcd",
+    productName: "TCD",
+    copyright: "Copyright © 2019 Steven Fontaine",
     directories: {
         buildResources: "build_assets",
         output: "build"

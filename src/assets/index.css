@@ -1,9 +1,177 @@
+:root {
+    --title-bar-height: 24px;
+    --icon-padding: 4px;
+    --border-color: #808080;
+    --background-color: #202020;
+}
+
+html {
+    height: 100%;
+    margin: 0;
+    user-select: none;
+}
+
 body {
-    background-color: black;
+    background-color: var(--background-color);
     color: white;
     margin: 0 0 0 0;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    font-size: 16pt;
+}
+
+button {
+    padding: 1px;
+    border: 2px solid var(--border-color);
+    background-color: var(--background-color);
+    color: #ffffff;
+    outline: none;
+    font-size: 16px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16pt;
+}
+
+button:hover {
+    background-color: #3c3c3c;
+}
+
+button:active {
+    background-color: #1c1c1c;
+}
+
+button:disabled:hover {
+    background-color: var(--background-color) !important;
+}
+
+input {
+    padding: 1px;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #00000000;
+    color: #ffffff;
+    outline: none;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    margin-right: 5px;
+    font-size: 16pt;
+}
+
+#titleBar {
+    background-color: black;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    -webkit-user-select: none;
+    width: 100%;
+    height: var(--title-bar-height);
+    z-index: 9999999;
+}
+
+#iconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--icon-padding);
+}
+
+#iconImage {
+    -webkit-user-drag: none;
+    height: calc(var(--title-bar-height) - 2 * var(--icon-padding));
+    width: calc(var(--title-bar-height) - 2 * var(--icon-padding));
+}
+
+#draggableRegion {
+    width: 100%;
+    height: var(--title-bar-height);
+    align-self: flex-end;
+    -webkit-app-region: drag;
+}
+
+
+#windowControls {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+
+.windowControl {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 100%;
+}
+
+.windowControl:hover {
+    background-color: #404040;
+}
+
+#windowClose:hover {
+    background-color: red !important;
+}
+
+#content {
     width: 100%;
     display: flex;
-    justify-content: center;
+    overflow: hidden;
+    padding: 5px;
+}
+
+#progress {
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    top: 0px;
+    left: 0px;
+    background-color: #005500;
+    z-index: -1;
+}
+
+#success {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background-color: #00aa00;
+    z-index: -1;
+    opacity: 0;
+}
+
+#error {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background-color: #cc0000;
+    z-index: -1;
+    opacity: 0;
+}
+
+@keyframes flashAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.flash {
+    animation: flashAnimation 0.5s linear;
+    animation-iteration-count: 1;
 }

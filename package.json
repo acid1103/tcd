@@ -1,6 +1,6 @@
 {
-  "name": "electron-typescript-template",
-  "version": "0.1.0",
+  "name": "tcd",
+  "version": "1.0.0",
   "description": "A template repo for building Electron apps with TypeScript using Electron Builder",
   "main": "dist/main.js",
   "scripts": {
@@ -8,18 +8,22 @@
     "start": "yarn run build:tsc && electron .",
     "build:win": "yarn run build:tsc && node electron-builder-proxy.js -t:w portable,nsis,zip -a x64,ia32",
     "build:mac": "yarn run build:tsc && node electron-builder-proxy.js -t:m default -a x64,ia32",
-    "build:linux": "yarn run build:tsc && node electron-builder-proxy.js -t:l AppImage -a x64,ia32",
+    "build:linux": "yarn run build:tsc && node electron-builder-proxy.js -t:l tar.gz -a x64,ia32",
     "release": "yarn run build:tsc && node electron-builder-proxy.js -t:w portable,nsis,zip -a x64,ia32 --publish"
   },
-  "repository": "https://github.com/acid1103/electron-typescript-template.git",
+  "repository": "https://github.com/acid1103/tcd.git",
   "author": "Steven Fontaine",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "devDependencies": {
+    "@types/jquery": "^3.3.31",
     "@types/node": "^12.0.0",
-    "electron": "4.x",
+    "electron": "^6.0.7",
     "electron-builder": "^20.40.2",
     "tslint": "^5.16.0",
     "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1"
   }
 }

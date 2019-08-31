@@ -4,14 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="dist/assets/index.css" id="indexCSS">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
     <script type="text/javascript">
         // call the compiled javascript
         require('./dist/index.js').default();
     </script>
-    <title>Title</title>
+    <title>TCD</title>
 </head>
 
 <body>
+
+    <div id="titleBar">
+        <div id="iconContainer">
+            <img src="dist/assets/icon.png" id="iconImage">
+        </div>
+
+        <div id="draggableRegion"></div>
+
+        <div id="windowControls">
+            <div id="windowMinimize" class="windowControl">
+                <svg width="16px" height="16px" viewBox="0 0 16 16">
+                    <path stroke="#ffffff" d="M2,4.5L14,4.5" />
+                </svg>
+            </div>
+
+            <div id="windowClose" class="windowControl">
+                <svg width="16px" height="16px" viewBox="0 0 16 16">
+                    <path stroke="#ffffff" d="M2.5,2.5L13.5,13.5M2.5,13.5L13.5,2.5" />
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div id="content">
+        <label for="vid">twitch.tv/videos/</label>
+        <input type="number" id="vid">
+        <button id="dl">Download</button>
+        <div id="progress"></div>
+        <div id="success"></div>
+        <div id="error"></div>
+    </div>
+
 </body>
 
 </html>
