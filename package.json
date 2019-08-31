@@ -1,0 +1,25 @@
+{
+  "name": "electron-typescript-template",
+  "version": "0.1.0",
+  "description": "A template repo for building Electron apps with TypeScript using Electron Builder",
+  "main": "dist/main.js",
+  "scripts": {
+    "build:tsc": "tslint --project . && tsc && node post-tsc-build.js",
+    "start": "yarn run build:tsc && electron .",
+    "build:win": "yarn run build:tsc && node electron-builder-proxy.js -t:w portable,nsis,zip -a x64,ia32",
+    "build:mac": "yarn run build:tsc && node electron-builder-proxy.js -t:m default -a x64,ia32",
+    "build:linux": "yarn run build:tsc && node electron-builder-proxy.js -t:l AppImage -a x64,ia32",
+    "release": "yarn run build:tsc && node electron-builder-proxy.js -t:w portable,nsis,zip -a x64,ia32 --publish"
+  },
+  "repository": "https://github.com/acid1103/electron-typescript-template.git",
+  "author": "Steven Fontaine",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@types/node": "^12.0.0",
+    "electron": "4.x",
+    "electron-builder": "^20.40.2",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5"
+  }
+}
